@@ -3,7 +3,7 @@ import { GlobalContext } from "../contexApi/contex";
 import Elipses from "./kabab";
 
 export default function TaskList() {
-    const { taskList, setTaskList, displayOpacity, activeIndex, editMode, editValue, setEditValue, saveEditedTask } = useContext(GlobalContext);
+    const { taskList, setTaskList, displayOpacity, activeIndex, setActiveIndex, editMode, editValue, setEditValue, saveEditedTask } = useContext(GlobalContext);
 
     const [checkedTasks, setCheckedTasks] = useState([]); // Array to track checked state of each task
 
@@ -30,6 +30,12 @@ export default function TaskList() {
             setTaskList(JSON.parse(savedTasks));
         }
     }, [setTaskList]);
+
+
+
+    useEffect(()=>{
+          setActiveIndex(false)
+    },[])
 
     return (
         <div className=" flex items-center justify-center">
