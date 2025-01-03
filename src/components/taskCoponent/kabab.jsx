@@ -16,8 +16,7 @@ export default function Elipses({ index, task }) {
 
             <button
                 className="p-1"
-                onClick={() => deleteTaskFunction(index)} 
-            >
+                onClick={() => deleteTaskFunction(index)}>
                 Delete task
             </button>
         </div>

@@ -1,4 +1,4 @@
-import { useContext, useState} from "react"
+import { useContext, useEffect, useState} from "react"
 import { GlobalContext } from "../contexApi/contex"
 import Elipses from "./kabab"
 
@@ -7,7 +7,7 @@ import Elipses from "./kabab"
 
 
 export default function TaskList() {
-    const { taskList,displayOpacity,  activeIndex,  editMode , editValue, setEditValue, saveEditedTask } = useContext(GlobalContext);
+    const { taskList,setTaskList,displayOpacity,  activeIndex,  editMode , editValue, setEditValue, saveEditedTask } = useContext(GlobalContext);
 
     const [Checked, setChecked] = useState(false)
 
@@ -15,6 +15,24 @@ export default function TaskList() {
     const check =()=>[
         setChecked(!Checked)
     ]
+
+
+  useEffect(()=>{
+     
+       if (taskList.length > 0) {
+           localStorage.setItem('saved', JSON.stringify(taskList))
+       }
+
+
+  },[taskList])
+
+
+  useEffect(() => {
+    const savedTasks = localStorage.getItem("taskList");
+    if (savedTasks) {
+        setTaskList(JSON.parse(savedTasks));  
+    }
+}, [])
 
 
     return (
