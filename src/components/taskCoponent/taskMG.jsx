@@ -41,7 +41,7 @@ useEffect(()=>{
 
     return(
 
-         <div className=" h-[30rem] w-11/12  md:w-8/12 lg:w-1/2 xl:w-3/12 rounded-2xl scrollbar  overflow-y-scroll bg-white shadow-2xl  shadow-sky-500">
+         <div className=" h-[30rem] w-11/12  md:w-8/12 lg:w-1/2 xl:w-3/12 rounded-2xl scrollbar  overflow-y-scroll bg-white shadow-lg  shadow-slate-700">
             <div className=" h-2/5 flex justify-center items-center bg-teal-800 ">
              <p className=" text-white text-2xl">You have( {numberTasks} )of Tasks </p>
             </div>
